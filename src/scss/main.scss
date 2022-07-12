@@ -118,3 +118,286 @@ li {
   font-weight: 400;
   line-height: 140%;
 }
+
+.main-screen {
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  background-color: #000;
+  .main-screen__bg {
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.7) 50%
+      );
+    }
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.header__wrapper {
+  position: relative;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-colored-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  display: flex;
+  justify-content: space-between;
+  span {
+    width: 33.33%;
+    &:nth-child(1) {
+      background-color: $brand-primary;
+    }
+    &:nth-child(2) {
+      background-color: $brand-red;
+    }
+    &:nth-child(3) {
+      background-color: $brand-green;
+    }
+  }
+}
+
+.header__logo {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin-right: 10px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+.header__descriptor {
+  margin-right: auto;
+  font-weight: 500;
+  font-size: 14px;
+  color: $brand-gray;
+  line-height: 120%;
+  max-width: 100px;
+}
+
+.header__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin: auto;
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 9px;
+  }
+  .info-item__ico {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $brand-primary;
+    img,
+    svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .info-item__link {
+    color: #fff;
+    font-weight: 500;
+  }
+  .info-item__descr {
+    color: $brand-gray;
+  }
+}
+
+.header__menu-btn {
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .menu-btn__ball {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: $brand-primary;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='14' viewBox='0 0 18 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M16.4766 0.823627C16.7337 0.912689 16.9353 1.07101 17.0993 1.31292C17.2657 1.55816 17.3174 1.76464 17.2959 2.09749C17.2666 2.55011 17.0179 2.92046 16.6081 3.12171L16.387 3.23031H8.98463H1.58228L1.36115 3.12171C1.11826 3.00246 0.911386 2.79718 0.773534 2.5387C0.698339 2.39769 0.684082 2.31175 0.684082 1.99984C0.684082 1.68792 0.698339 1.60199 0.773534 1.46097C0.911386 1.20249 1.11826 0.997221 1.36115 0.877963L1.58228 0.769369L8.92603 0.760658C15.9601 0.752338 16.2785 0.754994 16.4766 0.823627ZM16.4766 5.82351C16.7338 5.91273 16.9353 6.07109 17.0993 6.31292C17.2657 6.55816 17.3174 6.76464 17.2959 7.09749C17.2666 7.55011 17.0179 7.92046 16.6081 8.12171L16.387 8.23031H10.1565H3.92603L3.72224 8.12288C3.26935 7.88413 3.0281 7.49386 3.0281 6.99984C3.0281 6.50581 3.26935 6.11554 3.72224 5.87679L3.92603 5.76937L10.0979 5.76058C15.9987 5.75214 16.2789 5.75492 16.4766 5.82351ZM16.4766 10.8234C16.7339 10.9128 16.9354 11.0712 17.0993 11.3129C17.2657 11.5582 17.3174 11.7646 17.2959 12.0975C17.2666 12.5501 17.0179 12.9205 16.6081 13.1217L16.387 13.2303H12.5198H8.6526L8.4531 13.125C8.15721 12.9689 8.03568 12.8512 7.88834 12.578C7.76713 12.3532 7.7556 12.3031 7.7556 11.9998C7.7556 11.6964 7.76709 11.6466 7.88885 11.4207C8.03267 11.154 8.19693 10.9964 8.4756 10.8575L8.6526 10.7694L12.4612 10.7604C16.0727 10.7519 16.2805 10.7551 16.4766 10.8234Z' fill='white'/%3e%3c/svg%3e ");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+  }
+}
+
+.main-title {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #fff;
+  line-height: 120%;
+}
+
+.main-slider-section {
+  & > .container {
+    height: 100%;
+  }
+  .main-slider {
+    height: fit-content;
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 140px);
+  }
+  .slide__content {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-width: 740px;
+  }
+  .slide-descr {
+    margin-bottom: 60px;
+    color: #ffffff;
+    line-height: 140%;
+  }
+  .slide__wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    padding-right: 20px;
+  }
+  .play-sphere {
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+    width: 256px;
+    height: 256px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .play-sphere__ico {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: orbitBall 20s linear infinite;
+    transform-origin: 110px 110px;
+    svg {
+      animation: orbitBallReverse 20s linear infinite;
+    }
+  }
+
+  .swiper-slide-next,
+  .swiper-slide-prev {
+    .slide__content {
+      transform: translateY(30px);
+      opacity: 0.5;
+    }
+  }
+}
+
+@keyframes orbitBall {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbitBallReverse {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.main-slider__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 30px 0;
+  .swiper-pagination {
+    order: 2;
+    position: static;
+    width: auto;
+  }
+  .swiper-pagination-bullet {
+    transition: background-color 0.25s ease-in-out;
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    background-color: #fff;
+    &.swiper-pagination-bullet-active {
+      background-color: $brand-primary;
+    }
+  }
+}
+
+.slider__btns {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static;
+    width: 48px;
+    height: 48px;
+    background-color: $brand-primary;
+    border-radius: 50%;
+    margin: 0;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8px 13px;
+  &::after {
+    display: none;
+  }
+}
+.swiper-button-prev {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.29297 13.5861L0.706971 8.00006C0.5195 7.81253 0.414185 7.55823 0.414185 7.29306C0.414185 7.0279 0.5195 6.77359 0.706971 6.58606L6.29297 1.00006C6.43282 0.860253 6.61099 0.765046 6.80494 0.726479C6.99889 0.687911 7.19993 0.707714 7.38263 0.783384C7.56533 0.859054 7.72149 0.987194 7.83137 1.1516C7.94126 1.31601 7.99993 1.50931 7.99997 1.70706V12.8791C7.99993 13.0768 7.94126 13.2701 7.83137 13.4345C7.72149 13.5989 7.56533 13.7271 7.38263 13.8027C7.19993 13.8784 6.99889 13.8982 6.80494 13.8596C6.61099 13.8211 6.43282 13.7259 6.29297 13.5861Z' fill='white'/%3e%3c/svg%3e ");
+}
+.swiper-button-next {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 12.8791V1.70706C4.22242e-05 1.50931 0.0587138 1.31601 0.168598 1.1516C0.278482 0.987194 0.434645 0.859054 0.617345 0.783384C0.800044 0.707714 1.00108 0.687911 1.19503 0.726479C1.38898 0.765046 1.56715 0.860253 1.707 1.00006L7.29299 6.58606C7.48046 6.77359 7.58577 7.0279 7.58577 7.29306C7.58577 7.55823 7.48046 7.81253 7.29299 8.00006L1.707 13.5861C1.56715 13.7259 1.38898 13.8211 1.19503 13.8596C1.00108 13.8982 0.800044 13.8784 0.617345 13.8027C0.434645 13.7271 0.278482 13.5989 0.168598 13.4345C0.0587138 13.2701 4.22242e-05 13.0768 0 12.8791Z' fill='white'/%3e%3c/svg%3e ");
+}
