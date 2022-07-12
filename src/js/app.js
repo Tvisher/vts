@@ -63,10 +63,13 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
 
 
 const mainSlider = new Swiper('.main-slider', {
-    modules: [EffectFade, Navigation, Pagination,],
-    speed: 600,
-    effect: 'fade',
+    modules: [EffectFade, Navigation, Pagination, Autoplay],
+    speed: 1200,
     loop: true,
+    autoplay: {
+        delay: 8000,
+    },
+    effect: 'fade',
     fadeEffect: {
         crossFade: true
     },
