@@ -13,6 +13,7 @@
   "author": "tvisher",
   "license": "ISC",
   "dependencies": {
+    "@fancyapps/ui": "^4.0.27",
     "aos": "^2.3.4",
     "gulp-cli": "^2.3.0",
     "imask": "^6.4.2",

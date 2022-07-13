@@ -10,7 +10,7 @@ import Swiper, {
 
 import AOS from 'aos';
 import IMask from 'imask';
-
+import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
 // Проверка поддержки webP
 baseFunction.testWebP();
 
@@ -64,7 +64,7 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
 
 const mainSlider = new Swiper('.main-slider', {
     modules: [EffectFade, Navigation, Pagination, Autoplay],
-    speed: 1200,
+    // speed: 1200,
     loop: true,
     autoplay: {
         delay: 8000,
@@ -83,6 +83,40 @@ const mainSlider = new Swiper('.main-slider', {
         clickable: 1
     },
 });
+
+
+
+const partnersSlider = new Swiper('.partners__slider', {
+    modules: [Navigation],
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+const servicesSlider = new Swiper('.services__slider', {
+    modules: [Navigation],
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+const certificatesSlider = new Swiper('.certificates__slider', {
+    modules: [Navigation],
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+
 
 
 
