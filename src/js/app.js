@@ -117,6 +117,17 @@ const certificatesSlider = new Swiper('.certificates__slider', {
 });
 
 
+const reviewsSlider = new Swiper('.reviews__slider', {
+    modules: [Navigation],
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+
 
 
 
