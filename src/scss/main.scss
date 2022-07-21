@@ -196,6 +196,7 @@ li {
 }
 
 .header__logo {
+  flex-shrink: 0;
   width: 100px;
   height: 100px;
   overflow: hidden;
@@ -441,7 +442,7 @@ li {
     height: 150px;
     background-color: #f9f9f9;
     &:hover {
-      background-color: #e4e4e4;
+      background-color: #ebebeb;
       img {
         filter: grayscale(0);
         opacity: 1;
@@ -1393,7 +1394,7 @@ li {
     .header__logo {
       flex-shrink: 0;
     }
-    gap: 30px;
+    gap: 30px 0;
     .header__info {
       flex-wrap: wrap;
       justify-content: flex-start;
@@ -1455,6 +1456,21 @@ li {
 }
 
 @media (max-width: 414px) {
+  .title-wrapper {
+    justify-content: space-between !important;
+    .btn {
+      margin-left: 0;
+    }
+    .slider__btns {
+      margin-left: auto;
+    }
+  }
+  .advantages__list {
+    gap: 0;
+  }
+  .advantages__list .advantage:not(:last-child) {
+    margin-bottom: -45px !important;
+  }
   .site-menu {
     overflow: auto;
   }
@@ -1478,10 +1494,30 @@ li {
   .mission__wrapper .mission__title {
     margin-right: 10px;
   }
+  .header__logo {
+    width: 48px;
+    height: 48px;
+  }
+  .header__descriptor {
+    font-size: 12px;
+    line-height: 100%;
+  }
+  .header__wrapper {
+    padding: 15px 0;
+  }
+  .main-slider-section .main-slider {
+    padding-top: 30px;
+  }
+  .main-slider-section .main-slider {
+    min-height: calc(100vh - 78px);
+  }
 }
 
 @media (max-width: 768px) {
-  .services__slider {
+  .main-slider-section .play-sphere {
+    display: none;
+  }
+  .services__slider .swiper-slide-active {
     .service__wrapper {
       background-color: transparent !important;
     }
@@ -1506,7 +1542,15 @@ li {
     opacity: 1;
   }
   .partners__slider .swiper-slide {
-    background-color: #e4e4e4;
+    background-color: #ebebeb;
     border-radius: 5px;
+  }
+}
+@media (max-width: 380px) {
+  .main-title {
+    font-size: 28px;
+  }
+  .main-slider-section .slide-descr {
+    margin-bottom: 30px;
   }
 }
