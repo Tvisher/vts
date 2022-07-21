@@ -104,28 +104,44 @@ const partnersSlider = new Swiper('.partners__slider', {
 const servicesSlider = new Swiper('.services__slider', {
     modules: [Navigation],
     slidesPerView: 'auto',
-    spaceBetween: 30,
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+
+    spaceBetween: 15,
+    breakpoints: {
+        576: {
+            spaceBetween: 30,
+        }
+    }
 });
 
 const certificatesSlider = new Swiper('.certificates__slider', {
     modules: [Navigation],
     slidesPerView: 'auto',
-    spaceBetween: 30,
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+    spaceBetween: 15,
+    breakpoints: {
+        576: {
+            spaceBetween: 30,
+        }
+    }
 });
 
 
 const reviewsSlider = new Swiper('.reviews__slider', {
     modules: [Navigation],
     slidesPerView: 'auto',
-    spaceBetween: 30,
+    spaceBetween: 15,
+    breakpoints: {
+        576: {
+            spaceBetween: 30,
+        }
+    },
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
