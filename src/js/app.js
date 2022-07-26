@@ -41,6 +41,8 @@ AOS.init({
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 });
 
+
+
 //логика работы меню бургер
 document.body.addEventListener('click', (e) => {
     const target = e.target;
@@ -54,8 +56,19 @@ document.body.addEventListener('click', (e) => {
         document.querySelector('[data-header-menu]').classList.remove('active');
         document.body.classList.remove('hidden');
     }
-    if (target.closest('.fullscreen-slider__desc')) {
-        target.closest('.fullscreen-slider__desc').classList.add('open');
+
+    if (target.closest('[data-filter-btn]')) {
+        const btn = target.closest('[data-filter-btn]');
+        const filterParam = btn.dataset.filterBtn
+        const projectsArr = [...document.querySelectorAll('[data-filter-value]')];
+        let filtredProjectsArr;
+        if (filterParam === 'all') {
+            filtredProjectsArr = projectsArr;
+        } else {
+            filtredProjectsArr = projectsArr.filter(item => item.dataset.filterValue === filterParam);
+        }
+        projectsArr.forEach(item => item.classList.remove('show'));
+        filtredProjectsArr.forEach(item => item.classList.add('show'));
     }
 });
 
