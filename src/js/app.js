@@ -6,6 +6,7 @@ import Swiper, {
     Pagination,
     Autoplay,
     EffectFade,
+    Thumbs
 } from 'swiper';
 
 import AOS from 'aos';
@@ -17,8 +18,6 @@ baseFunction.testWebP();
 window.addEventListener('load', (e) => {
     document.body.style.opacity = 1;
 });
-
-
 
 // Инит и опции библиотеки анимаций
 AOS.init({
@@ -42,7 +41,6 @@ AOS.init({
 });
 
 
-
 //логика работы меню бургер
 document.body.addEventListener('click', (e) => {
     const target = e.target;
@@ -57,20 +55,34 @@ document.body.addEventListener('click', (e) => {
         document.body.classList.remove('hidden');
     }
 
-    if (target.closest('[data-filter-btn]')) {
-        const btn = target.closest('[data-filter-btn]');
-        const filterParam = btn.dataset.filterBtn
-        const projectsArr = [...document.querySelectorAll('[data-filter-value]')];
-        let filtredProjectsArr;
-        if (filterParam === 'all') {
-            filtredProjectsArr = projectsArr;
-        } else {
-            filtredProjectsArr = projectsArr.filter(item => item.dataset.filterValue === filterParam);
-        }
-        projectsArr.forEach(item => item.classList.remove('show'));
-        filtredProjectsArr.forEach(item => item.classList.add('show'));
-    }
 });
+
+
+//логика работы фильтра на странице с с проектами
+(function () {
+    const projectsArr = [...document.querySelectorAll('[data-filter-value]')];
+    const renderContainer = document.querySelector('[data-project-list]');
+    if (projectsArr && renderContainer) {
+        document.querySelectorAll('[data-filter-btn]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelector('[data-filter-btn].active').classList.remove('active');
+                btn.classList.add('active');
+                const filterParam = btn.dataset.filterBtn
+                let filtredProjectsArr;
+                if (filterParam === 'all') {
+                    filtredProjectsArr = projectsArr.slice(0);
+                } else {
+                    filtredProjectsArr = projectsArr.slice(0).filter(item => item.dataset.filterValue === filterParam);
+                }
+                renderContainer.innerHTML = '';
+                renderContainer.append(...filtredProjectsArr)
+            });
+        });
+    }
+}());
+
+
+
 
 // Маска на номера телефона
 document.querySelectorAll('input[type="tel"]').forEach(input => {
@@ -163,5 +175,37 @@ const reviewsSlider = new Swiper('.reviews__slider', {
 
 
 
+$(".vacancy-item__body").hide().prev().click(function () {
+    $(this).parents(".vacancy__list").find(".vacancy-item__body").not(this).slideUp().parent().removeClass("show");
+    $(this).next().not(":visible").slideDown().parent().addClass("show");
+
+});
 
 
+
+var servicePageSliderThumbs = new Swiper(".service-page__slider-thumbs", {
+    loop: true,
+    spaceBetween: 10,
+    slidesPerView: 3,
+    freeMode: true,
+    watchSlidesProgress: true,
+    grabCursor: 1,
+    breakpoints: {
+        992: {
+            spaceBetween: 30,
+        }
+    },
+});
+var servicePageSlider = new Swiper(".service-page__slider", {
+    modules: [Thumbs, Navigation],
+    loop: true,
+    spaceBetween: 10,
+    grabCursor: 1,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+        swiper: servicePageSliderThumbs,
+    },
+});
