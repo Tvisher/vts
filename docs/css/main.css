@@ -1939,29 +1939,29 @@ button {
   flex: 1 0 calc(50% - 30px);
 }
 
-.form-section .form-section__content form {
+.form-section__content form {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.form-section .form-section__content form .form-label:nth-of-type(2),
-.form-section .form-section__content form .form-label:nth-of-type(3) {
+.form-section__content form .form-label:nth-of-type(2),
+.form-section__content form .form-label:nth-of-type(3) {
   flex: 0 0 calc(50% - 30px);
 }
 
-.form-section .form-section__content .section-title {
+.form-section__content .section-title {
   margin-bottom: 60px;
 }
 
-.form-section .form-section__content .form-label {
+.form-section__content .form-label {
   width: 100%;
   position: relative;
   margin-bottom: 15px;
 }
 
-.form-section .form-section__content .form-label span {
+.form-section__content .form-label span {
   pointer-events: none;
   position: absolute;
   left: 0;
@@ -1971,36 +1971,36 @@ button {
   padding-left: 15px;
 }
 
-.form-section .form-section__content .form-label input,
-.form-section .form-section__content .form-label textarea {
+.form-section__content .form-label input,
+.form-section__content .form-label textarea {
   width: 100%;
   padding: 5px 15px;
   border-bottom: 1px solid #6e6e73;
 }
 
-.form-section .form-section__content .form-label input:not(:placeholder-shown) ~ span,
-.form-section .form-section__content .form-label input:focus ~ span,
-.form-section .form-section__content .form-label textarea:not(:placeholder-shown) ~ span,
-.form-section .form-section__content .form-label textarea:focus ~ span {
+.form-section__content .form-label input:not(:placeholder-shown) ~ span,
+.form-section__content .form-label input:focus ~ span,
+.form-section__content .form-label textarea:not(:placeholder-shown) ~ span,
+.form-section__content .form-label textarea:focus ~ span {
   font-size: 12px;
   padding-left: 10px;
   top: -5px;
   color: #a6aab1;
 }
 
-.form-section .form-section__content .form-label textarea {
+.form-section__content .form-label textarea {
   min-height: 35px;
   padding-top: 10px;
 }
 
-.form-section .form-section__content .styles-checkbox {
+.form-section__content .styles-checkbox {
   cursor: pointer;
   margin-bottom: 30px;
   position: relative;
   width: 100%;
 }
 
-.form-section .form-section__content .styles-checkbox input {
+.form-section__content .styles-checkbox input {
   position: absolute;
   left: 0;
   top: 0;
@@ -2009,18 +2009,18 @@ button {
   opacity: 0;
 }
 
-.form-section .form-section__content .styles-checkbox input:checked + span::after {
+.form-section__content .styles-checkbox input:checked + span::after {
   opacity: 1;
 }
 
-.form-section .form-section__content .styles-checkbox span {
+.form-section__content .styles-checkbox span {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   position: relative;
 }
 
-.form-section .form-section__content .styles-checkbox span::before {
+.form-section__content .styles-checkbox span::before {
   flex-shrink: 0;
   content: "";
   display: block;
@@ -2031,7 +2031,7 @@ button {
   margin-right: 10px;
 }
 
-.form-section .form-section__content .styles-checkbox span::after {
+.form-section__content .styles-checkbox span::after {
   opacity: 0;
   position: absolute;
   width: 24px;
@@ -2370,39 +2370,6 @@ button {
 .docs__list .list__item:hover .list__item-wrapper .doc__watch path,
 .docs__list .list__item:hover .list__item-wrapper .doc__load path {
   fill: #323c8d;
-}
-
-.site-menu {
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  opacity: 0;
-  visibility: hidden;
-  background: #000;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
-
-.site-menu.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.site-menu__nav {
-  padding-top: 100px;
-}
-
-.site-menu__nav li {
-  margin-bottom: 10px;
-}
-
-.site-menu__nav li a {
-  font-weight: 600;
-  font-size: 36px;
-  color: #ffffff;
-  padding: 10px 0;
 }
 
 .header__menu-btn[data-burger-menu-close] .menu-btn__ball {
@@ -3237,6 +3204,16 @@ button {
   color: #1d1d1f;
 }
 
+.flying-header .header__descriptor {
+  font-size: 12px;
+  line-height: 110%;
+}
+
+.flying-header .header__logo {
+  width: 48px;
+  height: 48px;
+}
+
 .turnover {
   padding: 50px 0;
 }
@@ -3305,6 +3282,178 @@ button {
   object-position: top;
 }
 
+.site-menu {
+  overflow: auto;
+  padding-bottom: 40px;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  background: #000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.site-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-menu__nav {
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+
+.site-menu__nav li a {
+  font-weight: 600;
+  font-size: 32px;
+  color: #ffffff;
+  padding: 10px 0;
+}
+
+.large-menu-wrapper {
+  padding-top: 100px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.services-open__main {
+  font-weight: 600;
+  font-size: 32px;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.services-open__list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: -13px;
+}
+
+.services-open__link {
+  padding: 4px 13px;
+}
+
+.services-open__link a {
+  color: #9b9b9b;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.is-mob {
+  display: none;
+}
+
+.is-mob.open .open-arrow {
+  transform: scale(-1);
+}
+
+.is-mob .services-open__list {
+  flex-wrap: nowrap;
+  display: none;
+}
+
+.open-arrow {
+  transition: transform 0.25s ease-in-out;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.open-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.open-arrow path {
+  stroke: #fff;
+}
+
+.is-mob__wrap {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.modal-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px;
+  padding-top: 144px;
+}
+
+.modal-wrapper .form-section__content .section-title {
+  margin-bottom: 30px;
+}
+
+.modal-wrapper.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper .modal-content {
+  margin: auto;
+  background-color: #fff;
+  padding: 60px;
+  border-radius: 16px;
+  max-width: 750px;
+  width: 100%;
+  position: relative;
+}
+
+.modal-wrapper .resume {
+  max-width: 465px;
+}
+
+.modal-wrapper .resume .form-label {
+  flex: 0 0 100% !important;
+}
+
+.form-label.fileload {
+  margin-bottom: 30px;
+  cursor: pointer !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.93957 13.5579C5.88087 14.6558 4.15673 14.757 2.97682 13.7906C2.27413 13.1822 1.91519 12.2675 2.01664 11.3435C2.1045 10.6623 2.42288 10.0317 2.91881 9.55654L4.83651 7.63752C5.22696 7.24695 5.22696 6.61383 4.83651 6.22326C4.44594 5.83281 3.81282 5.83281 3.42225 6.22326L1.54524 8.10095C0.689644 8.92601 0.150075 10.0247 0.0202691 11.2062C-0.222183 13.8672 1.73847 16.221 4.39953 16.4635C5.82858 16.5937 7.24171 16.0828 8.25712 15.0689L10.2628 13.0639C10.6533 12.6733 10.6533 12.0402 10.2628 11.6496C9.87227 11.2591 9.23915 11.2591 8.84858 11.6496L6.93957 13.5579Z' fill='%236E6E73'/%3e%3cpath d='M14.1075 1.47814C12.1163 0.0151741 9.35124 0.24453 7.62829 2.01558L5.74059 3.90393C5.35014 4.29451 5.35014 4.92763 5.74059 5.3182C6.13116 5.70865 6.76428 5.70865 7.15485 5.3182L9.07256 3.4025C10.1081 2.33145 11.7836 2.2108 12.9619 3.12244C14.1748 4.11694 14.3518 5.90631 13.3573 7.11913C13.2991 7.19011 13.2375 7.25822 13.1726 7.32323L11.1669 9.32895C10.7765 9.71952 10.7765 10.3526 11.1669 10.7432C11.5575 11.1337 12.1906 11.1337 12.5812 10.7432L14.5869 8.7375C16.4752 6.8432 16.4703 3.77685 14.576 1.88859C14.4288 1.74187 14.2723 1.60478 14.1075 1.47814Z' fill='%236E6E73'/%3e%3cpath d='M5.74071 9.3305L8.84832 6.22289C9.23893 5.83228 9.8722 5.83228 10.2628 6.22289C10.6534 6.61349 10.6534 7.24677 10.2628 7.63737L7.15519 10.745C6.76459 11.1356 6.13131 11.1356 5.74071 10.745C5.3501 10.3544 5.3501 9.72111 5.74071 9.3305Z' fill='%236E6E73'/%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+  background-position: 95% 0px;
+  padding-left: 15px;
+  border-bottom: 1px solid #6e6e73;
+  height: 30px;
+}
+
+.form-label.fileload input {
+  cursor: pointer !important;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.close-mod {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 30px;
+  height: 30px;
+}
+
 @media (max-width: 1330px) {
   .advantages__list .advantage:not(:first-child) {
     margin-left: -45px;
@@ -3331,9 +3480,14 @@ button {
 }
 
 @media (max-width: 1200px) {
-  header .header__info,
-  .site-menu .header__info {
+  header .info-item__text,
+  .site-menu .info-item__text {
     display: none;
+  }
+
+  .header__info {
+    margin-left: auto;
+    margin-right: 30px;
   }
 
   .services__list .list-item {
@@ -3463,6 +3617,19 @@ button {
 
   .requisites__list .list-item {
     width: 50%;
+  }
+
+  .header__logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .flying-header .flying-header__nav {
+    display: none;
+  }
+
+  .flying-header .header__menu-btn {
+    margin-left: auto;
   }
 
   .certificats__wrapper {
@@ -3706,6 +3873,35 @@ button {
   .contacts__block {
     margin: auto;
   }
+
+  .large-menu-wrapper {
+    padding-top: 50px;
+  }
+
+  .services-open {
+    display: none;
+  }
+
+  .is-mob {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .is-mob .services-open__list {
+    flex-direction: column;
+  }
+
+  .is-mob .services-open__list a {
+    color: #9b9b9b;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 5px 0;
+  }
+
+  .site-menu__nav {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 680px) {
@@ -3777,8 +3973,8 @@ button {
     font-size: 12px;
   }
 
-  .form-section .form-section__content form .form-label:nth-of-type(2),
-  .form-section .form-section__content form .form-label:nth-of-type(3) {
+  .form-section__content form .form-label:nth-of-type(2),
+  .form-section__content form .form-label:nth-of-type(3) {
     flex: auto;
   }
 
@@ -3799,6 +3995,10 @@ button {
 
   .footer .footer__nav {
     padding-top: 40px;
+  }
+
+  .header__info {
+    gap: 10px;
   }
 
   .footer__bottom .header__wrapper {
@@ -3826,6 +4026,11 @@ button {
     font-size: 30px;
     line-height: 120%;
     margin-bottom: 10px;
+  }
+
+  .header__logo {
+    width: 48px;
+    height: 48px;
   }
 
   .docs__list .list__item .list__item-wrapper {
@@ -3928,6 +4133,16 @@ button {
   .stages__list .stage {
     padding: 20px;
   }
+
+  .modal-wrapper .modal-content {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 508px) {
+  .header__info {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -3957,6 +4172,10 @@ button {
   .desc-list ul,
   .desc-list ol {
     margin-bottom: 30px;
+  }
+
+  .modal-wrapper {
+    padding: 40px 5px;
   }
 }
 
@@ -3989,10 +4208,6 @@ button {
     font-size: 28px;
   }
 
-  .site-menu__nav {
-    padding-top: 50px;
-  }
-
   .services__slider .service__wrapper {
     padding: 25px;
     padding-bottom: 70px;
@@ -4009,11 +4224,6 @@ button {
 
   .mission__wrapper .mission__title {
     margin-right: 10px;
-  }
-
-  .header__logo {
-    width: 48px;
-    height: 48px;
   }
 
   .header__descriptor {

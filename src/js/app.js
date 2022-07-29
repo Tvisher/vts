@@ -40,7 +40,6 @@ AOS.init({
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 });
 
-
 //логика работы меню бургер
 document.body.addEventListener('click', (e) => {
     const target = e.target;
@@ -55,6 +54,12 @@ document.body.addEventListener('click', (e) => {
         document.body.classList.remove('hidden');
     }
 
+
+    //Закрытие модального окна
+    if (target.closest('.close-mod') || (target.closest('.modal-wrapper.show') && !target.closest('.modal-content'))) {
+        let openModal = document.querySelector('.modal-wrapper.show');
+        openModal && openModal.classList.remove('show');
+    }
 });
 
 
@@ -174,11 +179,16 @@ const reviewsSlider = new Swiper('.reviews__slider', {
 });
 
 
+// Раскрывашка в меню
+$(".open-arrow").click(function () {
+    $(this).parents('.is-mob').find('.services-open__list').slideToggle();
+    $(this).parents('.is-mob').toggleClass('open');
+})
 
+//Раскрывашка на странице вакансий
 $(".vacancy-item__body").hide().prev().click(function () {
     $(this).parents(".vacancy__list").find(".vacancy-item__body").not(this).slideUp().parent().removeClass("show");
     $(this).next().not(":visible").slideDown().parent().addClass("show");
-
 });
 
 
@@ -208,4 +218,17 @@ var servicePageSlider = new Swiper(".service-page__slider", {
     thumbs: {
         swiper: servicePageSliderThumbs,
     },
+});
+
+
+//Летающее меню
+const header = document.querySelector('header.header');
+const flyingHeader = document.querySelector('.flying-header');
+window.addEventListener('scroll', function (e) {
+    const headerheight = header.clientHeight;
+    if (scrollY > headerheight) {
+        flyingHeader.classList.add('show');
+    } else {
+        flyingHeader.classList.remove('show');
+    }
 });
