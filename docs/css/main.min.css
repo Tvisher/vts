@@ -3669,12 +3669,14 @@ button {
 }
 
 .projects__filter {
+  overflow: auto;
   margin-top: 30px;
   display: flex;
   gap: 16px;
 }
 
 .projects__filter li {
+  white-space: nowrap;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   cursor: pointer;
   line-height: 140%;
@@ -5109,7 +5111,7 @@ button {
   }
 
   .main-screen.small {
-    min-height: 360px;
+    min-height: 250px;
   }
 
   .services__list .list-item {
