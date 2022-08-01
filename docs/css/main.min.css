@@ -2097,7 +2097,7 @@ button {
 }
 
 .main-screen.small {
-  min-height: 500px;
+  min-height: 400px;
 }
 
 .main-screen .main-screen__bg {
