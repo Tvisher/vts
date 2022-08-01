@@ -35,7 +35,7 @@ AOS.init({
     delay: 100, // values from 0 to 3000, with step 50ms
     duration: 1200, // values from 0 to 3000, with step 50ms
     easing: 'ease', // default easing for AOS animations
-    once: false, // whether animation should happen only once - while scrolling down
+    once: true, // whether animation should happen only once - while scrolling down
     mirror: false, // whether elements should animate out while scrolling past them
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 });
@@ -53,8 +53,6 @@ document.body.addEventListener('click', (e) => {
         document.querySelector('[data-header-menu]').classList.remove('active');
         document.body.classList.remove('hidden');
     }
-
-
     //Закрытие модального окна
     if (target.closest('.close-mod') || (target.closest('.modal-wrapper.show') && !target.closest('.modal-content'))) {
         let openModal = document.querySelector('.modal-wrapper.show');
@@ -80,21 +78,12 @@ document.body.addEventListener('click', (e) => {
                     filtredProjectsArr = projectsArr.slice(0).filter(item => item.dataset.filterValue === filterParam);
                 }
                 renderContainer.innerHTML = '';
-                renderContainer.append(...filtredProjectsArr)
+                renderContainer.append(...filtredProjectsArr);
             });
         });
     }
 }());
 
-
-
-
-// Маска на номера телефона
-document.querySelectorAll('input[type="tel"]').forEach(input => {
-    const mask = IMask(input, {
-        mask: '+{7}(000) 000-00-00'
-    });
-});
 
 
 const mainSlider = new Swiper('.main-slider', {
@@ -118,8 +107,6 @@ const mainSlider = new Swiper('.main-slider', {
         clickable: 1
     },
 });
-
-
 
 const partnersSlider = new Swiper('.partners__slider', {
     modules: [Navigation],
@@ -162,7 +149,6 @@ const certificatesSlider = new Swiper('.certificates__slider', {
     }
 });
 
-
 const reviewsSlider = new Swiper('.reviews__slider', {
     modules: [Navigation],
     slidesPerView: 'auto',
@@ -178,22 +164,8 @@ const reviewsSlider = new Swiper('.reviews__slider', {
     },
 });
 
-
-// Раскрывашка в меню
-$(".open-arrow").click(function () {
-    $(this).parents('.is-mob').find('.services-open__list').slideToggle();
-    $(this).parents('.is-mob').toggleClass('open');
-})
-
-//Раскрывашка на странице вакансий
-$(".vacancy-item__body").hide().prev().click(function () {
-    $(this).parents(".vacancy__list").find(".vacancy-item__body").not(this).slideUp().parent().removeClass("show");
-    $(this).next().not(":visible").slideDown().parent().addClass("show");
-});
-
-
-
-var servicePageSliderThumbs = new Swiper(".service-page__slider-thumbs", {
+// Парный слайдер галереи
+const servicePageSliderThumbs = new Swiper(".service-page__slider-thumbs", {
     loop: true,
     spaceBetween: 10,
     slidesPerView: 3,
@@ -206,7 +178,7 @@ var servicePageSliderThumbs = new Swiper(".service-page__slider-thumbs", {
         }
     },
 });
-var servicePageSlider = new Swiper(".service-page__slider", {
+const servicePageSlider = new Swiper(".service-page__slider", {
     modules: [Thumbs, Navigation],
     loop: true,
     spaceBetween: 10,
@@ -221,7 +193,21 @@ var servicePageSlider = new Swiper(".service-page__slider", {
 });
 
 
-//Летающее меню
+
+// Раскрывашка в меню
+$(".open-arrow").click(function () {
+    $(this).parents('.is-mob').find('.services-open__list').slideToggle();
+    $(this).parents('.is-mob').toggleClass('open');
+})
+
+//Раскрывашка на странице вакансий
+$(".vacancy-item__body").hide().prev().click(function () {
+    $(this).parents(".vacancy__list").find(".vacancy-item__body").not(this).slideUp().parent().removeClass("show");
+    $(this).next().not(":visible").slideDown().parent().addClass("show");
+});
+
+
+//Фиксированное меню
 const header = document.querySelector('header.header');
 const flyingHeader = document.querySelector('.flying-header');
 window.addEventListener('scroll', function (e) {
@@ -231,4 +217,12 @@ window.addEventListener('scroll', function (e) {
     } else {
         flyingHeader.classList.remove('show');
     }
+});
+
+
+// Маска на номера телефона
+document.querySelectorAll('input[type="tel"]').forEach(input => {
+    const mask = IMask(input, {
+        mask: '+{7}(000) 000-00-00'
+    });
 });

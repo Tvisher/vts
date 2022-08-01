@@ -49,7 +49,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #fff;
-  opacity: 0;
+  // opacity: 0;
   transition: opacity 0.3s ease;
 
   &.hidden {
@@ -1499,6 +1499,12 @@ li {
 }
 
 @media (max-width: 414px) {
+  .service-page__slider .swiper-button-next {
+    right: 10px;
+  }
+  .service-page__slider .swiper-button-prev {
+    left: 10px;
+  }
   .title-wrapper {
     justify-content: space-between !important;
     .btn {
@@ -3034,4 +3040,42 @@ li {
   top: 15px;
   width: 30px;
   height: 30px;
+}
+
+.site-menu__nav li a,
+.services-open__main {
+  width: fit-content;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0px;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out;
+  }
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.services-open__link a {
+  transition: color 0.25s ease-in-out;
+  &:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+.header__info .info-item {
+  .info-item__ico svg {
+    transition: transform 0.25s ease-in-out;
+  }
+  &:hover {
+    .info-item__ico svg {
+      transform: scale(1.2);
+    }
+  }
 }
