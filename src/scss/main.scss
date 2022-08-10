@@ -2655,8 +2655,13 @@ li {
     line-height: 110%;
   }
   .header__logo {
-    width: 48px;
-    height: 48px;
+    width: 68px;
+    height: 68px;
+
+    @media (max-width: 576px) {
+      width: 48px;
+      height: 48px;
+    }
   }
 }
 
@@ -3078,6 +3083,26 @@ li {
   &:hover {
     .info-item__ico svg {
       transform: scale(1.2);
+    }
+  }
+}
+
+.project {
+  &:nth-child(3n - 2) {
+    .project__nameplate {
+      background-color: #323c8d;
+    }
+  }
+
+  &:nth-child(3n + 2) {
+    .project__nameplate {
+      background-color: #be2b2f;
+    }
+  }
+
+  &:nth-child(3n) {
+    .project__nameplate {
+      background-color: #1e5e3f;
     }
   }
 }

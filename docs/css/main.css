@@ -4220,8 +4220,8 @@ button {
 }
 
 .flying-header .header__logo {
-  width: 48px;
-  height: 48px;
+  width: 68px;
+  height: 68px;
 }
 
 .turnover {
@@ -4502,6 +4502,18 @@ button {
 
 .header__info .info-item:hover .info-item__ico svg {
   transform: scale(1.2);
+}
+
+.project:nth-child(3n-2) .project__nameplate {
+  background-color: #323c8d;
+}
+
+.project:nth-child(3n+2) .project__nameplate {
+  background-color: #be2b2f;
+}
+
+.project:nth-child(3n) .project__nameplate {
+  background-color: #1e5e3f;
 }
 
 @media (max-width: 1330px) {
@@ -5164,6 +5176,11 @@ button {
 
   .partner-proj {
     padding-top: 40px;
+  }
+
+  .flying-header .header__logo {
+    width: 48px;
+    height: 48px;
   }
 
   .achievements__list .list-item {
