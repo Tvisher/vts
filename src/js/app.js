@@ -58,6 +58,14 @@ document.body.addEventListener('click', (e) => {
         let openModal = document.querySelector('.modal-wrapper.show');
         openModal && openModal.classList.remove('show');
     }
+    //открытие любого модального окна
+    if (target.closest('[data-modal-id]')) {
+        e.preventDefault();
+        const targetBtn = target.closest('[data-modal-id]');
+        const targetBtnId = targetBtn.dataset.modalId;
+        const modal = document.querySelector(`#${targetBtnId}`);
+        modal.classList.add('show');
+    }
 });
 
 
