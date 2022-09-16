@@ -57,13 +57,33 @@ document.body.addEventListener('click', (e) => {
     if (target.closest('.close-mod') || (target.closest('.modal-wrapper.show') && !target.closest('.modal-content'))) {
         let openModal = document.querySelector('.modal-wrapper.show');
         openModal && openModal.classList.remove('show');
+        openModal && openModal.classList.remove('white');
+
     }
     //открытие любого модального окна
     if (target.closest('[data-modal-id]')) {
         e.preventDefault();
         const targetBtn = target.closest('[data-modal-id]');
         const targetBtnId = targetBtn.dataset.modalId;
+
         const modal = document.querySelector(`#${targetBtnId}`);
+        modal.classList.add('show');
+    }
+
+
+    if (target.closest('[data-open-modal]')) {
+        if (window.innerWidth > 1200) {
+            return
+        }
+        e.preventDefault();
+        const targetBtn = target.closest('[data-open-modal]');
+        const targetBtnId = targetBtn.dataset.openModal;
+
+
+        const modal = document.querySelector(`#${targetBtnId}`);
+        if (targetBtn.closest('.flying-header')) {
+            modal.classList.add('white');
+        }
         modal.classList.add('show');
     }
 });
